@@ -5,7 +5,8 @@ import
   Text, 
   View, 
   Button, 
-  Modal 
+  Modal,
+  TouchableOpacity 
 } from 'react-native';
 import OpenModal from './src/modal/OpenModal';
 
@@ -14,11 +15,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={modal && styles.hidden}>
-        <Text style={styles.text}>QrCode</Text>
+        <Text style={styles.title}>QR Code</Text>
         <StatusBar style="auto" />
-        <Button
+        <TouchableOpacity
+        style={styles.button}
         onPress={() => setModal(true)}
-        title='Ler QrCode'/>
+        >
+          <Text style={styles.textBtn}>Ler QR Code</Text>
+        </TouchableOpacity>
       </View>
       <Modal
         visible={modal}
@@ -26,11 +30,13 @@ export default function App() {
         onRequestClose={() => setModal(false)}
       >
         <OpenModal/>
-        <View style={styles.button}>
-          <Button
-          onPress={() => setModal(false)}
-          title='Cancelar escaneamento'
-          />
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+           style={styles.button}
+           onPress={() => setModal(false)}
+        >
+          <Text style={styles.textBtn}>Cancelar Escaneamento</Text>
+        </TouchableOpacity>
         </View>
       </Modal>
     </View>
@@ -45,9 +51,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  text: {
+  title: {
+    fontWeight: 'bold',
     fontSize: 30,
     marginBottom: 20,
+  },
+
+  textBtn: {
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: '#fff',
   },
 
   modal: {
@@ -59,7 +72,16 @@ const styles = StyleSheet.create({
   hidden: {
     display: 'none',
   },
-  button:{
+
+  button: {
+    backgroundColor: '#1E90FF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 5,
+  },
+
+  buttonContainer:{
     position: 'absolute',
     bottom: 30,
     left: 50,
