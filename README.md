@@ -1,11 +1,11 @@
-# Install dependencies
+## Install dependencies
 
 ```bash
 npm install
 # or
 yarn 
 ```
-# Start
+## Start
 ```bash 
 npm start
 # or 
