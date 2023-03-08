@@ -8,7 +8,8 @@ import
 { 
   View, 
   StyleSheet, 
-  Button 
+  Button,
+  Vibration 
 } from 'react-native';
 
 import { BarCodeScanner } from 'expo-barcode-scanner';
@@ -27,6 +28,7 @@ export default function Qrcode({code}:any) {
        const handleBarCodeScanned = ({ type, data } :any) => {
         setScanned(true); 
         code({type, data})  
+        Vibration.vibrate(1000);
       };
 
       if (hasPermission === null) 
