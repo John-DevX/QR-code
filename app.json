@@ -8,7 +8,7 @@
         }
       ]
     ],
-    "name": "qrcode",
+    "name": "Leitor QR",
     "slug": "qrcode",
     "version": "1.0.0",
     "orientation": "portrait",
